@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6198" systemVersion="14A297b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6198"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.pdfkit.ibplugin" version="6250"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -641,20 +642,22 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider=""/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
-        <!--Window Controller - Window-->
+        <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+                        <value key="minSize" type="size" width="480" height="270"/>
+                        <value key="maxSize" type="size" width="1440" height="1440"/>
+                        <contentBorderThickness minY="0.0" maxY="0.0"/>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -667,15 +670,142 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="268"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <pdfView wantsLayer="YES" misplaced="YES" autoScales="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CU6-1f-d6r" userLabel="pdf">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="240"/>
+                            </pdfView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5B4-tu-t6x" userLabel="img">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="240"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" imageFrameStyle="photo" id="e0E-sk-R3N"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W3J-w1-cdo">
+                                <rect key="frame" x="5" y="251" width="128" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="128" id="VYT-4i-gVJ"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Application" drawsBackground="YES" id="ca9-c3-tzU">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tBa-jn-jzu">
+                                <rect key="frame" x="138" y="251" width="24" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="cvL-gU-TdC"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Left" drawsBackground="YES" id="Ik0-Hy-nXL">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="XfG-lQ-9wD" id="MSa-BQ-pBw"/>
+                                </connections>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWV-2y-KQe">
+                                <rect key="frame" x="167" y="251" width="24" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="RW5-4l-xaL"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Right" drawsBackground="YES" id="tN7-aP-MRW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="XfG-lQ-9wD" id="TSi-8J-G1X"/>
+                                </connections>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81V-sG-vy8">
+                                <rect key="frame" x="226" y="251" width="100" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="100" id="gnb-RS-N8A"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Keys" drawsBackground="YES" id="tAB-As-RiK">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LqM-sj-CHd">
+                                <rect key="frame" x="331" y="251" width="78" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="N9z-CQ-W96"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="x,y" drawsBackground="YES" id="Bwf-6T-Zn4">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6G3-Va-5G6" userLabel="left eye">
+                                <rect key="frame" x="427" y="247" width="20" height="20"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="eye" id="h7j-dl-gAK"/>
+                            </imageView>
+                            <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Xf-p4-UFF" userLabel="right eye">
+                                <rect key="frame" x="455" y="247" width="20" height="20"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="eye" id="7Ek-eA-WHT"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4xh-3p-K1F">
+                                <rect key="frame" x="197" y="251" width="24" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="Oe4-py-V2Q"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Other" drawsBackground="YES" id="UJM-vk-Ikp">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="XfG-lQ-9wD" id="Kc8-mG-k0o"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="5B4-tu-t6x" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="28" id="26Z-zm-NOo"/>
+                            <constraint firstAttribute="trailing" secondItem="CU6-1f-d6r" secondAttribute="trailing" id="436-mv-Kdl"/>
+                            <constraint firstItem="W3J-w1-cdo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="5" id="7ZH-tT-6EV"/>
+                            <constraint firstItem="CU6-1f-d6r" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="28" id="7qQ-9J-ShS"/>
+                            <constraint firstItem="3Xf-p4-UFF" firstAttribute="leading" secondItem="6G3-Va-5G6" secondAttribute="trailing" constant="8" id="Ctx-Q7-oaO"/>
+                            <constraint firstAttribute="trailing" secondItem="LqM-sj-CHd" secondAttribute="trailing" constant="71" id="DjG-nD-n0k"/>
+                            <constraint firstItem="CU6-1f-d6r" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Hpx-nB-SEB"/>
+                            <constraint firstAttribute="trailing" secondItem="6G3-Va-5G6" secondAttribute="trailing" constant="33" id="TBK-ta-0QB"/>
+                            <constraint firstAttribute="trailing" secondItem="5B4-tu-t6x" secondAttribute="trailing" id="UrQ-ev-Ecw"/>
+                            <constraint firstAttribute="bottom" secondItem="CU6-1f-d6r" secondAttribute="bottom" constant="2" id="Zgn-N8-3UV"/>
+                            <constraint firstItem="5B4-tu-t6x" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="agK-sa-auj"/>
+                            <constraint firstItem="4xh-3p-K1F" firstAttribute="leading" secondItem="81V-sG-vy8" secondAttribute="leading" constant="-29" id="mrV-NF-hxx"/>
+                            <constraint firstItem="LqM-sj-CHd" firstAttribute="leading" secondItem="81V-sG-vy8" secondAttribute="leading" constant="105" id="qLY-mu-Qan"/>
+                            <constraint firstAttribute="bottom" secondItem="5B4-tu-t6x" secondAttribute="bottom" id="rUg-xL-7zH"/>
+                            <constraint firstItem="W3J-w1-cdo" firstAttribute="trailing" secondItem="tBa-jn-jzu" secondAttribute="trailing" constant="-29" id="v1J-w4-8nu"/>
+                            <constraint firstItem="wWV-2y-KQe" firstAttribute="leading" secondItem="tBa-jn-jzu" secondAttribute="leading" constant="29" id="xXU-OC-SaE"/>
+                            <constraint firstItem="4xh-3p-K1F" firstAttribute="leading" secondItem="wWV-2y-KQe" secondAttribute="leading" constant="30" id="ylk-Sj-ard"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="appImg" destination="e0E-sk-R3N" id="6Lo-Ms-9o2"/>
+                        <outlet property="appImgWrapper" destination="5B4-tu-t6x" id="sFu-4f-lvB"/>
+                        <outlet property="appPdf" destination="CU6-1f-d6r" id="gZU-rR-Aw5"/>
+                        <outlet property="button1" destination="Ik0-Hy-nXL" id="3X7-HK-FsJ"/>
+                        <outlet property="button2" destination="tN7-aP-MRW" id="mMG-FE-Aah"/>
+                        <outlet property="button3" destination="UJM-vk-Ikp" id="3Sc-MZ-a04"/>
+                        <outlet property="currentApp" destination="ca9-c3-tzU" id="nDa-28-xxE"/>
+                        <outlet property="keys" destination="tAB-As-RiK" id="uLC-v9-exk"/>
+                        <outlet property="leftEye" destination="6G3-Va-5G6" id="4hS-Hr-z3P"/>
+                        <outlet property="mLoc" destination="Bwf-6T-Zn4" id="P8q-wP-p2d"/>
+                        <outlet property="rightEye" destination="3Xf-p4-UFF" id="T1g-Rv-pv0"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="743"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="eye" width="22" height="22"/>
+    </resources>
 </document>

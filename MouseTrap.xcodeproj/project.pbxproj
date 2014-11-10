@@ -13,6 +13,8 @@
 		E9AB94FD19FC156100A8D2A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9AB94FC19FC156100A8D2A2 /* Images.xcassets */; };
 		E9AB950019FC156100A8D2A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9AB94FE19FC156100A8D2A2 /* Main.storyboard */; };
 		E9AB950C19FC156100A8D2A2 /* MouseTrapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AB950B19FC156100A8D2A2 /* MouseTrapTests.m */; };
+		E9AB951819FC82F700A8D2A2 /* MT_Focus.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AB951619FC82F700A8D2A2 /* MT_Focus.m */; };
+		E9AB951B1A01D7A400A8D2A2 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9AB951A1A01D7A400A8D2A2 /* Quartz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,9 @@
 		E9AB950519FC156100A8D2A2 /* MouseTrapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MouseTrapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9AB950A19FC156100A8D2A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9AB950B19FC156100A8D2A2 /* MouseTrapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MouseTrapTests.m; sourceTree = "<group>"; };
+		E9AB951519FC82F700A8D2A2 /* MT_Focus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MT_Focus.h; sourceTree = "<group>"; };
+		E9AB951619FC82F700A8D2A2 /* MT_Focus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MT_Focus.m; sourceTree = "<group>"; };
+		E9AB951A1A01D7A400A8D2A2 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = ../Quartz.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9AB951B1A01D7A400A8D2A2 /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +89,8 @@
 				E9AB94F519FC156000A8D2A2 /* AppDelegate.m */,
 				E9AB94F919FC156000A8D2A2 /* ViewController.h */,
 				E9AB94FA19FC156100A8D2A2 /* ViewController.m */,
+				E9AB951519FC82F700A8D2A2 /* MT_Focus.h */,
+				E9AB951619FC82F700A8D2A2 /* MT_Focus.m */,
 				E9AB94FC19FC156100A8D2A2 /* Images.xcassets */,
 				E9AB94FE19FC156100A8D2A2 /* Main.storyboard */,
 				E9AB94F219FC156000A8D2A2 /* Supporting Files */,
@@ -93,6 +101,7 @@
 		E9AB94F219FC156000A8D2A2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E9AB951A1A01D7A400A8D2A2 /* Quartz.framework */,
 				E9AB94F319FC156000A8D2A2 /* Info.plist */,
 				E9AB94F719FC156000A8D2A2 /* main.m */,
 			);
@@ -216,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9AB94FB19FC156100A8D2A2 /* ViewController.m in Sources */,
+				E9AB951819FC82F700A8D2A2 /* MT_Focus.m in Sources */,
 				E9AB94F819FC156000A8D2A2 /* main.m in Sources */,
 				E9AB94F619FC156000A8D2A2 /* AppDelegate.m in Sources */,
 			);
@@ -332,6 +342,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MouseTrap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -343,6 +357,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MouseTrap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -404,6 +422,7 @@
 				E9AB951119FC156100A8D2A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E9AB951219FC156100A8D2A2 /* Build configuration list for PBXNativeTarget "MouseTrapTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +431,7 @@
 				E9AB951419FC156100A8D2A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
